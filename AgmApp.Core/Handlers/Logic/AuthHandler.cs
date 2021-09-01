@@ -19,7 +19,7 @@ namespace AgmApp.Core
             this._conf = conf;
         }
 
-        public string GenerateJWT(Users user)
+        public string GenerateJWT(User user)
         {
 
             var symetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._conf["Authentication:SecretKey"]));
@@ -27,7 +27,7 @@ namespace AgmApp.Core
             var header = new JwtHeader(sigInCredentials);
 
             var claims = new[] {
-                new Claim(ClaimTypes.Name, user.UsrNombres),
+                new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.Role, "Admin"),
             };
 

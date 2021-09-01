@@ -20,12 +20,19 @@ namespace AgmApp.Infrastructure.Repositories
             this._context = context;
         }
 
-        public async Task<Users> GetUserByCredentials() {
+        public async Task<User> GetUserByCredentials() {
 
-            return await _context.Users.Where(x => x.Id == 1).FirstOrDefaultAsync();          
+            return  await _context.Users.Where(x => x.Id == 1).Select(x=> new User() { 
+                AccesId= "e29dae7e-cfbf-4ac8-afa3-545e4808ae20",
+                Names= x.UsrNombres,
+                Photo= "photo.png",
+                Username = x.UsrUsername
+            }).FirstOrDefaultAsync();          
+
+             
         }
 
-        public async Task<int> CreateUser(Users data)
+        public async Task<int> CreateUser(User data)
         {
             var entity = new Users()
             {
@@ -33,7 +40,7 @@ namespace AgmApp.Infrastructure.Repositories
                 UsrIdPk = "2",
                 UsrNombres = "segundo",
                 UsrPassword = "asdasd",
-                UsrUsername = "mBox"
+                UsrUsername = "mBox",
             };
 
             var result =  await  _context.Users.AddAsync(entity);

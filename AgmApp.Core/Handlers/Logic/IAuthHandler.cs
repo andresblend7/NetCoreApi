@@ -7,6 +7,6 @@ namespace AgmApp.Core.Handlers.Logic
 {
     public interface IAuthHandler
     {
-        string GenerateJWT(Users user);
+        string GenerateJWT(User user);
     }
 }

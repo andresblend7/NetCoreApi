@@ -37,7 +37,7 @@ namespace AgmApp.API.Controllers
                 
                 var token = this._autHandler.GenerateJWT(user);
 
-                return Ok(new { user , token});
+                return Ok(new { user, token });
 
             }
             else {
@@ -49,7 +49,7 @@ namespace AgmApp.API.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(Users data)
+        public async Task<IActionResult> Create(User data)
         {
             var user = await this._userRepository.CreateUser(data);
             var response = new ApiResponse<int>(user);        

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Entities\dbModel\" />
     <Folder Include="Enum\" />
     <Folder Include="Handlers\Exceptions\" />
     <Folder Include="ModelStructure\" />

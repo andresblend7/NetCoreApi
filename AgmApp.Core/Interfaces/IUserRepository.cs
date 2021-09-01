@@ -8,7 +8,13 @@ namespace AgmApp.Core.Interfaces
 {
     public interface IUserRepository
     {
-        Task<Users> GetUserByCredentials();
-        Task<int> CreateUser(Users data);
+        Task<User> GetUserByCredentials();
+
+        /// <summary>
+        /// ESTE ERRROR DE USERS NO DEBE ESTAR EN CORE, DEBE ESTAR EN INFRAESTRUCTURE Y ENVIARSE UN MODELO DTO
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        Task<int> CreateUser(User data);
     }
 }
